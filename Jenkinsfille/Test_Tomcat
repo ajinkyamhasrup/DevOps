@@ -2,8 +2,9 @@ pipeline {
     agent { label 'linux' }
     stages {
 
-        dir('ansible') {
-        stage('Example Build') {
+
+        stage('Tomcat_start_stop') {
+            dir('ansible') {
              if (params.Action == "start") {
 sh "export ANSIBLE_FORCE_COLOR=true; ansible-playbook tomcat.yml -e act=${params.Action}"
             }
