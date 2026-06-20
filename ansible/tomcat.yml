@@ -1,0 +1,14 @@
+---
+- name: Restart Tomcat
+  hosts: localhost
+  become: yes
+
+  tasks:
+
+    - name: Stop Tomcat
+      shell: /opt/tomcat/bin/shutdown.sh
+      when: {{ act }} == "stop"
+
+    - name: Start Tomcat
+      shell: /opt/tomcat/bin/startup.sh
+      when: {{ act }} == "start"
