@@ -7,8 +7,8 @@
 
     - name: Stop Tomcat
       shell: /opt/tomcat/bin/shutdown.sh
-      when: {{ act }} == "stop"
+      when: "{{ act }}" == "stop"
 
     - name: Start Tomcat
       shell: /opt/tomcat/bin/startup.sh
-      when: {{ act }} == "start"
+      when: "{{ act }}" == "start"
