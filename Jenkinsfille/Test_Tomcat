@@ -2,7 +2,7 @@ pipeline {
     agent { label 'linux' }
     stages {
 
-        dir('sterling/95/ansible') {
+        dir('ansible') {
         stage('Example Build') {
              if (params.Action == "start") {
 sh "export ANSIBLE_FORCE_COLOR=true; ansible-playbook tomcat.yml -e act=${params.Action}"
