@@ -1,21 +1,45 @@
 pipeline {
-    agent { label 'linux' }
+    agent {
+        label 'linux'
+    }
+
+    parameters {
+        choice(
+            name: 'Action',
+            choices: ['start', 'stop'],
+            description: 'Select Tomcat action'
+        )
+    }
+
     stages {
 
+        stage('Tomcat Start Stop') {
 
-        stage('Tomcat_start_stop') {
-            dir('ansible') {
-             if (params.Action == "start") {
-sh "export ANSIBLE_FORCE_COLOR=true; ansible-playbook tomcat.yml -e act=${params.Action}"
+            steps {
+                dir('ansible') {
+
+                    script {
+
+                        if (params.Action == 'start') {
+
+                            sh '''
+                            export ANSIBLE_FORCE_COLOR=true
+                            ansible-playbook tomcat.yml -e act=start
+                            '''
+
+                        } else if (params.Action == 'stop') {
+
+                            sh '''
+                            export ANSIBLE_FORCE_COLOR=true
+                            ansible-playbook tomcat.yml -e act=stop
+                            '''
+
+                        }
+
+                    }
+                }
             }
-             else
-             {
-sh "export ANSIBLE_FORCE_COLOR=true; ansible-playbook tomcat.yml -e act=${params.Action}"
-             }
-
-          } //stage
-        } //dir
+        }
     }
 }
-
 
