@@ -3,7 +3,8 @@ pipeline {
     stages {
         stage('Example Build') {
             steps {
-                sh 'echo Hi Ajinkya'
+                sh 'echo Hello Ajinkya'
+
             }
         }
     }
