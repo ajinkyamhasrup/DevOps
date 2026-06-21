@@ -1,0 +1,5 @@
+cluster: AppCluster  
+app: Jboss
+service_account: app_svc
+hostid: 2
+ip: 192.168.56.200

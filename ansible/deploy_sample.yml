@@ -1,7 +1,7 @@
 ---
 - name: Deploy sample WAR to Tomcat
   hosts: localhost
-  #become: yes
+  become: yes
 
   tasks:
 
@@ -11,7 +11,7 @@
         dest: /opt/tomcat/webapps/sample.war
         owner: tomcat
         group: tomcat
-        mode: '0644'
+        mode: '0744'
 
     - name: Restart Tomcat
       shell: /opt/tomcat/bin/shutdown.sh && sleep 5 && /opt/tomcat/bin/startup.sh

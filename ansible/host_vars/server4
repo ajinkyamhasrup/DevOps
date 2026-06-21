@@ -1,0 +1,5 @@
+cluster: Cybase_Cluster
+app: cybase_version10
+service_account: cybase_svc
+hostid: 4
+ip: 192.168.56.400

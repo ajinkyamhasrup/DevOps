@@ -1,0 +1,5 @@
+---
+- name: Create cluster directory inside /home/ajinkya/ansible
+  file:
+   path: /home/ajinkya/ansible/{{ cluster }}
+   state: directory

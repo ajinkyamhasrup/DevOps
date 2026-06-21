@@ -1,0 +1,24 @@
+{
+  "appRecords":[
+    {
+      "app":"{{ app }}",
+      "envname":"{{ app | upper | replace('_',' ') }}",
+      "folder":"/apps/scope/products/wms",
+      "host":"{{ ansible_host }}.wsgc.com",
+      "os":"Linux",
+      "user":"{{ service_account }}",
+      "cluster":"{{ cluster }}",
+      "hostid":"{{ hostid }}",
+      "release":2020,
+      "product":"WM",
+      "deployType":null,
+      "url":"{{ ip }}:22000",
+      "leaf":false,
+      "applicationURL":"http://{{ ansible_host }}.wsgc.com:22000",
+      "id":3
+    }
+  ],
+  "action":"start",
+  "cluster":"{{ cluster }}",
+  "scppVersion":2020
+}

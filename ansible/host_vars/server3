@@ -1,0 +1,5 @@
+cluster: DbCluster
+app: Mysql
+service_account: db_svc
+hostid: 3
+ip: 192.168.56.300

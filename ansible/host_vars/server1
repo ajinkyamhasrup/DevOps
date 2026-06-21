@@ -1,0 +1,5 @@
+cluster: AppCluster
+app: Tomcat
+service_account: app_svc
+hostid: 1
+ip: 192.168.56.100

@@ -1,0 +1,23 @@
+---
+- name: Ansible template example
+  hosts: cluster1,cluster2
+  become: yes
+
+  tasks:
+
+    - name: Create cluster directory inside /home/ajinkya/ansible
+      file:
+        path: /home/ajinkya/ansible/{{ cluster }}
+        state: directory
+
+    - name: Ansible JSON config template Creation.
+      ansible.builtin.template:
+        src: sample.json.j2
+        dest: "/home/ajinkya/ansible/{{ cluster }}/sample.json"
+
+          
+        #src: "{{ item.src }}"
+        #dest: "/home/ajinkya/ansible/{{ cluster }}/{{ item.dest }}"
+        #mode: 0777
+     #with_items:
+     #- {src: sample.json.j2, dest: "{{ app | lower }}_.json"}
