@@ -11,3 +11,6 @@ ansible localhost -b -m replace -a 'path=/opt/tomcat/conf/server.xml regexp="por
 
 ansible localhost -b -m replace -a 'path=/opt/tomcat/conf/server.xml regexp='port=\"8085\"' replace='port=\"8083\"''
 
+ansible-playbook -i inventory deploy_sample.yml
+ansible-playbook install_tomcat.yml
+
