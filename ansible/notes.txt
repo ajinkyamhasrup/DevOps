@@ -1,0 +1,13 @@
+esc :q! to exit from file without save
+esc :x to save and exit
+cd /mnt/c/Users/ajink/IdeaProjects/DevOps/ansible ...{this is the git path of my DevOps repo}
+cd /home/ajinkya/ansible {this is the ansible dir in server NOT for the git to commit}
+ansible web -m lineinfile -a "path=/etc/hosts line='10.0.2.20 myserver'" 
+ansible localhost -m lineinfile -a "path=/etc/hosts line='10.0.2.20 myserver'"
+
+ansible localhost -b -m replace -a "path=/opt/tomcat/conf/server.xml regexp='port=\"8085\"' replace='port=\"8083\"'"
+
+ansible localhost -b -m replace -a 'path=/opt/tomcat/conf/server.xml regexp="port=\"8083\"" replace="port=\"8085\""'
+
+ansible localhost -b -m replace -a 'path=/opt/tomcat/conf/server.xml regexp='port=\"8085\"' replace='port=\"8083\"''
+
