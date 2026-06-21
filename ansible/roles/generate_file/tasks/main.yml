@@ -1,0 +1,10 @@
+---
+- name: Ansible JSON config template Creation
+  ansible.builtin.template:
+    src: "{{ item.src }}"
+    dest: "/home/ajinkya/ansible/{{ cluster }}/{{ item.dest }}"
+    mode: '0777'
+  with_items:
+  - src: sample.json.j2
+    dest: "{{ app | lower }}.json"
+

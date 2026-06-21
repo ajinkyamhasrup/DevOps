@@ -1,0 +1,16 @@
+---
+- name: copy files to other location in the same server
+  hosts: localhost
+  #become: yes
+
+  tasks:
+
+    - name: copy files
+      copy:
+        src: /mnt/c/Users/ajink/IdeaProjects/DevOps/ansible/{{ item }}
+        dest: /home/ajinkya/ansible
+      with_items:
+        - tomcat.yml
+        - deploy_sample.yml
+        - update_lineinfile.yml
+        - install_tomcat.yml

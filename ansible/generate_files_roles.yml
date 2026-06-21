@@ -1,0 +1,10 @@
+---
+- name: Ansible template example
+  hosts: tomcat
+  become: yes
+
+  tasks:
+
+    - name: Include generate files  
+      include_role:
+        name: generate_file
