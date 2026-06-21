@@ -31,7 +31,7 @@ pipeline {
 
                             sh '''
                             export ANSIBLE_FORCE_COLOR=true
-                            ansible-playbook deploy_app.yml
+                            ansible-playbook deploy_sample.yml
                             '''
 
                         } else if (params.Action == 'start') {
