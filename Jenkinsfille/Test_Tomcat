@@ -6,21 +6,35 @@ pipeline {
     parameters {
         choice(
             name: 'Action',
-            choices: ['start', 'stop'],
+            choices: ['install', 'deploy', 'start', 'stop'],
             description: 'Select Tomcat action'
         )
     }
 
     stages {
 
-        stage('Tomcat Start Stop') {
+        stage('Tomcat Management') {
 
             steps {
                 dir('ansible') {
 
                     script {
 
-                        if (params.Action == 'start') {
+                        if (params.Action == 'install') {
+
+                            sh '''
+                            export ANSIBLE_FORCE_COLOR=true
+                            ansible-playbook install_tomcat.yml
+                            '''
+
+                        } else if (params.Action == 'deploy') {
+
+                            sh '''
+                            export ANSIBLE_FORCE_COLOR=true
+                            ansible-playbook deploy_app.yml
+                            '''
+
+                        } else if (params.Action == 'start') {
 
                             sh '''
                             export ANSIBLE_FORCE_COLOR=true
@@ -42,4 +56,3 @@ pipeline {
         }
     }
 }
-
